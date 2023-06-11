@@ -18,5 +18,16 @@ public class MouseAim : MonoBehaviour
        Vector3 direction = mousePosition - gunTransform.position;
        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
        gunTransform.rotation = Quaternion.Euler(0, 0, angle);
+
+       // Flip the image if pointing to the left
+    if (direction.x < 0)
+    {
+        gunTransform.localScale = new Vector3(1, -1, 1);
+    }
+    else
+    {
+        gunTransform.localScale = new Vector3(1, 1, 1);
+    }
     }
 }
+//testing
